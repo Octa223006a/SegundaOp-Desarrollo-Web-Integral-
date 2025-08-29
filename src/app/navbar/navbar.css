@@ -1,0 +1,86 @@
+.navbar {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.navbar a:hover::before {
+  left: 100%;
+}
+
+.navbar a:hover {
+  color: #4f46e5;
+  background-color: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.navbar a.active {
+  color: #4f46e5;
+  background-color: #eef2ff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+/* Iconos (necesitarías agregar los iconos en el HTML) */
+.navbar a::after {
+  font-family: 'Material Icons';
+  font-size: 1.2rem;
+}
+
+.navbar a[routerLink="/"]::after {
+  content: "home";
+}
+
+.navbar a[routerLink="/about"]::after {
+  content: "info";
+}
+
+.navbar a[routerLink="/contact"]::after {
+  content: "mail";
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .navbar {
+    padding: 1rem;
+  }
+}
